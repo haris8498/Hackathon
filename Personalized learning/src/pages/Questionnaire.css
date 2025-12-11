@@ -1,0 +1,217 @@
+.questionnaire-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 50%, #E0E7FF 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.questionnaire-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 7rem var(--spacing-lg) var(--spacing-3xl);
+    position: relative;
+}
+
+/* Decorative Shapes */
+.decorative-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.15;
+}
+
+.shape {
+    position: absolute;
+    font-size: 3rem;
+    color: var(--color-blue);
+    animation: floatShape 20s ease-in-out infinite;
+}
+
+.shape-1 {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.shape-2 {
+    top: 25%;
+    right: 15%;
+    animation-delay: 2s;
+    animation-duration: 22s;
+}
+
+.shape-3 {
+    top: 60%;
+    left: 8%;
+    animation-delay: 4s;
+    animation-duration: 20s;
+}
+
+.shape-4 {
+    top: 70%;
+    right: 20%;
+    animation-delay: 1s;
+    animation-duration: 24s;
+}
+
+.shape-5 {
+    top: 40%;
+    left: 85%;
+    animation-delay: 3s;
+    animation-duration: 19s;
+}
+
+.shape-6 {
+    top: 80%;
+    left: 50%;
+    animation-delay: 5s;
+    animation-duration: 21s;
+}
+
+@keyframes floatShape {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-30px) rotate(120deg);
+    }
+
+    66% {
+        transform: translateY(15px) rotate(240deg);
+    }
+}
+
+/* Question Content */
+.question-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.question-content.fade-out {
+    animation: fadeOutSlide 0.4s ease-out forwards;
+}
+
+.question-content.fade-in {
+    animation: fadeInSlide 0.4s ease-out;
+}
+
+@keyframes fadeOutSlide {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.question-title {
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    color: var(--color-gray-900);
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+/* Options Grid */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.options-grid.three-columns {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Next Button */
+.next-button {
+    display: block;
+    margin: 0 auto;
+    padding: 1rem 2.5rem;
+    background: var(--gradient-button);
+    color: var(--color-white);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    box-shadow: var(--shadow-xl);
+    transition: all var(--transition-base);
+}
+
+.next-button:hover:not(.disabled) {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 24px -6px rgba(59, 130, 246, 0.4);
+}
+
+.next-button:active:not(.disabled) {
+    transform: translateY(0) scale(1.02);
+}
+
+.next-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: var(--shadow-md);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .questionnaire-container {
+        padding-top: 6rem;
+    }
+
+    .question-title {
+        font-size: var(--font-size-3xl);
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    .options-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .options-grid.three-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .shape {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .question-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .next-button {
+        padding: 0.875rem 2rem;
+        font-size: var(--font-size-base);
+    }
+}

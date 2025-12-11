@@ -1,0 +1,72 @@
+.floating-theme-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(74, 144, 226, 0.3);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    color: white;
+}
+
+.floating-theme-toggle:hover {
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 12px 32px rgba(74, 144, 226, 0.5);
+}
+
+.floating-theme-toggle:active {
+    transform: translateY(-2px) scale(1.05);
+}
+
+.theme-icon {
+    animation: rotateIn 0.4s ease;
+}
+
+@keyframes rotateIn {
+    from {
+        transform: rotate(-90deg) scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Pulse animation on hover */
+.floating-theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: rgba(74, 144, 226, 0.3);
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.floating-theme-toggle:hover::before {
+    transform: scale(1.2);
+    opacity: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .floating-theme-toggle {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+}

@@ -1,0 +1,127 @@
+.streak-counter {
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.15) 0%, rgba(234, 88, 12, 0.15) 100%);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(251, 146, 60, 0.3);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    animation: bounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation-delay: 0.4s;
+    animation-fill-mode: backwards;
+}
+
+.streak-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.01em;
+}
+
+.streak-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.fire-emojis {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.fire-emoji {
+    font-size: 2.5rem;
+    display: inline-block;
+    animation: firePulse 1.5s ease-in-out infinite;
+}
+
+.fire-emoji:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.fire-emoji:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.fire-emoji:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.streak-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.streak-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #EA580C;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(234, 88, 12, 0.2);
+}
+
+.streak-label {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-700);
+    font-weight: 600;
+    margin-top: var(--spacing-xs);
+}
+
+.streak-subtitle {
+    color: var(--color-gray-600);
+    font-size: var(--font-size-sm);
+    margin: 0;
+    font-weight: 500;
+}
+
+@keyframes bounceIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5) translateY(-30px);
+    }
+
+    60% {
+        transform: scale(1.05) translateY(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes firePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+        filter: brightness(1.2) drop-shadow(0 0 8px rgba(251, 146, 60, 0.6));
+    }
+}
+
+@media (max-width: 768px) {
+    .streak-counter {
+        padding: var(--spacing-lg);
+    }
+
+    .streak-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .fire-emoji {
+        font-size: 2rem;
+    }
+
+    .streak-number {
+        font-size: 2.5rem;
+    }
+}

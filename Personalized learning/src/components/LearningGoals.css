@@ -1,0 +1,143 @@
+.learning-goals {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-lg);
+    animation: slideInRight 0.6s ease-out;
+    animation-delay: 0.6s;
+    animation-fill-mode: backwards;
+}
+
+.goals-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.01em;
+}
+
+.goals-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.goal-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    animation: fadeInUp 0.5s ease-out backwards;
+}
+
+.goal-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px -2px rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.goal-item.completed {
+    background: rgba(16, 185, 129, 0.05);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.goal-item.completed .goal-title {
+    text-decoration: line-through;
+    color: var(--color-gray-500);
+}
+
+.goal-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-blue);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition-base);
+}
+
+.goal-item.completed .goal-checkbox {
+    background: #10B981;
+    border-color: #10B981;
+}
+
+.goal-checkbox svg {
+    animation: checkmarkPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.goal-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.goal-title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-gray-900);
+    flex: 1;
+    transition: all var(--transition-base);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes checkmarkPop {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .learning-goals {
+        padding: var(--spacing-lg);
+    }
+
+    .goals-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .goal-icon {
+        font-size: 1.25rem;
+    }
+
+    .goal-item {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+}
